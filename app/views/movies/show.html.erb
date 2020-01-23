@@ -27,28 +27,9 @@
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
 
-
-<%= form_for([@movie, @review]) do |f| %>
-  <div class="field">
-    <%= f.number_field :rating %>
-  </div>
-  <div class="field">
-    <%= f.text_field :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% if user_signed_in? && current_user.review %>
-    <%= link_to('Delete', movie_review_path([@movie, current_user.review]), method: :delete ) %>
-  <% end %>
-<% end %>
-
+<%= render 'reviews/form' %>
 
 <p> Reviews: </p>
-<% @movie.reviews.where.not(user: current_user).each do |review| %>
-  <div>
-    <p><%= review.user.email %>:</p>
-    <p><%= review.rating %></p>
-    <p><%= review.comment %></p>
-  </div>
-<% end %>
+<div >
+  <%= render :partial => @movie.reviews.where.not(user: current_user) %>
+</div>
