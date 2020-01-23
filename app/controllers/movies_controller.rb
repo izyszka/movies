@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:index, :show]
+  before_action :authorize, except: [:index, :show, :search]
   # GET /movies
   # GET /movies.json
   def index
@@ -63,6 +63,14 @@ class MoviesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @movies = Movie.search(params[:search])
+    else
+      @movies = Movie.all
     end
   end
 
