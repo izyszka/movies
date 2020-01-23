@@ -10,7 +10,11 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
-    @review = Review.new
+    if user_signed_in? && current_user.review
+      @review = current_user.review
+    else
+      @review = Review.new
+    end
   end
 
   # GET /movies/new
