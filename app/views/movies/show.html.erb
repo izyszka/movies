@@ -5,6 +5,10 @@
   <%= @movie.title %>
 </p>
 
+<div>
+  <%= image_tag @movie.poster.url(:medium) %>
+</div>
+
 <p>
   <strong>Director:</strong>
   <%= @movie.director %>
