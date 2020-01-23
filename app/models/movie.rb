@@ -3,4 +3,6 @@ class Movie < ApplicationRecord
   validates_attachment_content_type :poster, content_type: /\Aimage\/.*\z/
 
   has_many :reviews, dependent: :destroy
+
+  validates :title, :director, :description, :length, :poster, presence: true
 end

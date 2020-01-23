@@ -6,8 +6,8 @@ class ReviewsController < ApplicationController
     # review = current_user.create_review(review_params)
     review = Review.create(review_params)
     review.movie = @movie
-    current_user.review = review
 
+    current_user.review = review
     redirect_to @movie
   end
 
