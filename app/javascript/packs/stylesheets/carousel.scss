@@ -1,0 +1,44 @@
+.slide {
+  img {
+    width:100%;
+  }
+}
+.slide-title {
+  position:absolute;
+  top: 5%;
+  width:100%;
+  height: 20%;
+  text-align: right;
+  padding-right: 7%;
+  h1 {
+    font-family: 'Neuton', serif;
+    font-size: 4em;
+    font-weight:300;
+    color: rgba(0,0,0,0);
+    transition: color 0.5s linear;
+    &:hover {
+      color: rgba(0,0,0,0.8);
+      cursor: pointer;
+    }
+  }
+}
+.carousel-item.active:hover h1 {
+    color: rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+@media screen and (max-width:1000px) {
+  #carouselExampleControls {
+    .slide-title {
+      h1 {
+        font-size: 3em;
+      }
+    }
+  }
+}
+@media screen and (min-width:1200px) {
+  #carouselExampleControls {
+    width: 85%;
+    align-self: center;
+    margin:auto;
+  }
+}
