@@ -1,36 +1,88 @@
 nav.navbar {
-   position: -webkit-sticky;
-   position: sticky;
-   top: 0;
-   z-index:3;
-   form {
-     position: absolute;
-     left: 14em;
-   }
-   .nav-item {
-     padding-left: 1.5em;
-   }
- }
- .notice, .alert {
-   text-align:center;
-   width: 100vw;
-   box-sizing: border-box;
-   border-top: 2px solid white;
-   border-bottom: 2px solid white;
-   border-radius: 0;
-   position: -webkit-sticky;
-   position: sticky;
-   top: 56px;
-   z-index:1;
-   padding: .30em 0;
- }
- .jumbotron {
-   padding: 2em;
-   position: -webkit-sticky;
-   position:sticky;
-   top: 56px;
-   z-index:2;
-   a {
-     color: inherit;
-   }
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index:3;
+  color: #7F6B00;
+  .navbar-brand {
+    font-family: 'Cinzel', serif;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  form {
+    position: absolute;
+    left: 20%;
+    input, .search-input{
+      background:#191919;
+      color: silver;
+      outline: none;
+      border: 1px solid black;
+      height: 2em;
+      padding: .5em;
+      i {
+        color:silver;
+      }
+    }
+    input[type="text"] {
+      border-right: none;
+    }
+    input[type="submit"], i {
+      position: absolute;
+      top: 0;
+      right: 0 ;
+      padding: .5em;
+    }
+    i {
+      color:silver;
+    }
+    input[type="submit"] {
+      border-left: none;
+      width: 3em;
+      background:transparent;
+      z-index: 2;
+    }
+  }
+  .nav-item {
+    padding-left: 1.5em;
+    a {
+      color: silver;
+      font-size: 1.1em;
+      text-decoration: none;
+      &:hover {
+        color: #7F6B00;
+      }
+    }
+  }
+}
+.notice, .alert {
+  color: #cccccc;
+  text-align:center;
+  width: 100vw;
+  box-sizing: border-box;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0;
+  padding: .30em 0;
+}
+.jumbotron {
+  color: #7F6B00;
+  // background: linear-gradient(to right, black 30%, transparent 70%);
+  background: rgba(0,0,0,0.7);
+  padding: 2em;
+  position: -webkit-sticky;
+  position:sticky;
+  top: 58px;
+  z-index:2;
+  a {
+    color: inherit;
+  }
+}
+nav.navbar, .jumbotron, .notice, .alert {
+  background: rgba(0,0,0,0.7);
+  transition: background-color 1s linear;
+  &:hover {
+    background: black;
+  }
  }

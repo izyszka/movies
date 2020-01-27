@@ -1,0 +1,31 @@
+.card {
+  width: 15em;
+  display: inline-block;
+  margin: .7em;
+  background: #e9ecef;
+  .card-img-top {
+    height: 20em;
+    overflow: hidden;
+    img {
+      width:100%;
+      &:hover {
+        transition: transform .1s;
+        transform: scale(1.1, 1.1);
+      }
+    }
+  }
+  .card-body {
+    text-align:center;
+  }
+}
+#movies-index {
+  width:100%;
+  text-align: center;
+  h1 {
+    color: #191919;
+    width: 100%;
+    border-bottom: 2px solid #212529;
+    padding-bottom: .3em;
+    margin-bottom: .3em;
+  }
+}
