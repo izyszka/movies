@@ -1,2 +1,11 @@
 @import './bootstrap_custom.scss';
 @import './carousel.scss';
+@import './mainpage.scss';
+
+body {
+  font-family: 'Times New Roman', serif;
+  font-weight:300;
+}
+.page-wrapper {
+  padding-top: 1.5em;
+}

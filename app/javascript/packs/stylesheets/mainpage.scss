@@ -1,0 +1,36 @@
+nav.navbar {
+   position: -webkit-sticky;
+   position: sticky;
+   top: 0;
+   z-index:3;
+   form {
+     position: absolute;
+     left: 14em;
+   }
+   .nav-item {
+     padding-left: 1.5em;
+   }
+ }
+ .notice, .alert {
+   text-align:center;
+   width: 100vw;
+   box-sizing: border-box;
+   border-top: 2px solid white;
+   border-bottom: 2px solid white;
+   border-radius: 0;
+   position: -webkit-sticky;
+   position: sticky;
+   top: 56px;
+   z-index:1;
+   padding: .30em 0;
+ }
+ .jumbotron {
+   padding: 2em;
+   position: -webkit-sticky;
+   position:sticky;
+   top: 56px;
+   z-index:2;
+   a {
+     color: inherit;
+   }
+ }
