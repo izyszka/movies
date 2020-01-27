@@ -7,24 +7,47 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
-    <% if current_user %>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
-    <% else %>
-      <%= link_to 'Sign in', new_user_session_path%>
-      <%= link_to 'Sign up', new_user_registration_path%>
-    <% end %>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to 'MOVIES', root_path %>
+      </div>
 
-    <%= form_tag search_movies_path, method: :get, role: "search" do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", name:nil %>
-    <% end %>
+      <%= form_tag search_movies_path, method: :get, role: "search", class: "form-inline" do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", name:nil %>
+      <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <ul id="nav-menu" class="nav">
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to 'Account', edit_user_registration_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign in', new_user_session_path%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign up', new_user_registration_path%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+    <% if notice %>
+      <div class="notice"><div class="container"><%= notice %></div></div>
+    <% elsif alert %>
+      <div class="alert"><div class="container"><%= alert %></div></div>
+    <% end %>
 
     <%= yield %>
   </body>

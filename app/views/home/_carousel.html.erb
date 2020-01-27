@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-12 mb-4">
+
+      <div class="container text-center my-3">
+        <div class="row mx-auto my-auto carousel-bcg">
+          <div id="recipeCarousel2" class="carousel slide w-100 " data-ride="carousel">
+
+            <div class="carousel-inner w-100 vv-3" role="listbox">
+
+              <div class="carousel-item active">
+                <div class="col-4">
+                  <div class="d-block">
+                    <div class="img-fluid">
+                      <div class="card">
+                        <div class="card-img-top">
+                          <%= link_to @movies.first do %>
+                            <%= image_tag @movies.first.poster.url(:medium), class: "img-fluid"%>
+                          <% end %>
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= @movies.first.title%></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <% @movies[1..].each do |movie| %>
+                <div class="carousel-item">
+                  <div class="col-4">
+                    <div class="d-block">
+                      <div class="img-fluid">
+                        <div class="card">
+                          <div class="card-img-top">
+                            <%= link_to movie do %>
+                              <%= image_tag movie.poster.url(:medium), class: "img-fluid" %>
+                            <% end %>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title"><%= movie.title%></h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#recipeCarousel2" role="button" data-slide="prev">
+              <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+            </a>
+            <a class="carousel-control-next" href="#recipeCarousel2" role="button" data-slide="next">
+              <div class="carousel-control-next-icon" aria-hidden="true"></div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+</div>
