@@ -1,5 +1,8 @@
 #carouselExampleControls {
-  margin-bottom: 1.5em !important;
+  margin-bottom: 2em !important;
+  -webkit-box-shadow: 0px 41px 94px 30px rgba(0,0,0,0.79);
+  -moz-box-shadow: 0px 41px 94px 30px rgba(0,0,0,0.79);
+  box-shadow: 0px 41px 94px 30px rgba(0,0,0,0.79);
 }
 .slide {
   img {
@@ -9,10 +12,10 @@
 .slide-title {
   position:absolute;
   top: 5%;
-  width:100%;
+  right: 7%;
+  width:55%;
   height: 20%;
   text-align: right;
-  padding-right: 7%;
   h1 {
     font-family: 'Neuton', serif;
     font-size: 4em;
@@ -40,7 +43,7 @@
 }
 @media screen and (min-width:1200px) {
   #carouselExampleControls {
-    width: 85%;
+    width: 90%;
     align-self: center;
     margin:auto;
   }
