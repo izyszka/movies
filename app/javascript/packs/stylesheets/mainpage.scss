@@ -55,6 +55,7 @@ nav.navbar {
       }
     }
   }
+  padding: 0.5rem 1rem;
 }
 .notice, .alert {
   color: #cccccc;
@@ -68,8 +69,6 @@ nav.navbar {
 }
 .jumbotron {
   color: #7F6B00;
-  // background: linear-gradient(to right, black 30%, transparent 70%);
-  background: rgba(0,0,0,0.7);
   padding: 2em;
   position: -webkit-sticky;
   position:sticky;
@@ -80,7 +79,7 @@ nav.navbar {
   }
 }
 nav.navbar, .jumbotron, .notice, .alert {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.3);
   transition: background-color 1s linear;
   &:hover {
     background: black;

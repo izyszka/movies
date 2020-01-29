@@ -28,7 +28,7 @@
 
           <input type="submit" value="">
           <i class="fa fa-search"></i>
-          
+
         <% end %>
 
         <ul id="nav-menu" class="nav">
@@ -56,15 +56,6 @@
       <div class="notice"><div class="container"><%= notice %></div></div>
     <% elsif alert %>
       <div class="alert"><div class="container"><%= alert %></div></div>
-    <% end %>
-
-    <%if current_page?(root_path) && !current_user %>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Welcome</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent. <%= link_to 'Sign in', new_user_session_path%> or <%= link_to 'Sign up', new_user_registration_path%> if you don't want to see it.</p>
-        </div>
-      </div>
     <% end %>
 
     <div class="page-wrapper">

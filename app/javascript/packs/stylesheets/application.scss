@@ -2,12 +2,13 @@
 @import './carousel.scss';
 @import './mainpage.scss';
 @import './movies_index.scss';
+@import './form.scss';
 @import url('https://fonts.googleapis.com/css?family=Cinzel:700|Cormorant+Garamond:300,400,500,600,700&display=swap');
 
 body {
   font-family: 'Cormorant Garamond', serif;
   font-weight:400;
-  background: radial-gradient(ellipse at bottom, white 0%, black 90%);
+  background: radial-gradient(ellipse at bottom, white -10%, black 90%);
   min-height:100vh;
 }
 .page-wrapper {
