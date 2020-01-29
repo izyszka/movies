@@ -1,35 +1,51 @@
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<div id="movie-show">
+  <div class="movie">
 
-<div>
-  <%= image_tag @movie.poster.url(:medium) %>
-</div>
+    <div>
+      <%= image_tag @movie.poster.url(:medium) %>
+    </div>
+  </div>
 
-<p>
-  <strong>Director:</strong>
-  <%= @movie.director %>
-</p>
+  <div class="description">
+    <h1>
+      <%= @movie.title.titlecase %>
+    </h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @movie.description %>
-</p>
+    <p>
+      <%= @movie.director.titlecase %>
+      <br>
+      <%= @movie.length %>
+    </p>
 
-<p>
-  <strong>Length:</strong>
-  <%= @movie.length %>
-</p>
+    <div id="rating-form">
+      </div>
 
-<% if current_user && current_user.is_admin? %>
-  <%= link_to 'Edit', edit_movie_path(@movie) %> |
-<% end %>
-<%= link_to 'Back', movies_path %>
+    <p>
+      <%= @movie.description.capitalize %>
+    </p>
 
-<%= render 'reviews/form' %>
+    <div class="links">
+      <% if current_user && current_user.is_admin? %>
+        <%= link_to 'Edit', edit_movie_path(@movie) %> |
+      <% end %>
+      <%= link_to 'Back', movies_path %>
+    </div>
 
-<p> Reviews: </p>
-<div >
-  <%= render :partial => @movie.reviews.where.not(user: current_user) %>
+  </div>
+
+  <div class = "reviews">
+
+    <div class="reviews">
+
+      <%= render 'reviews/form' %>
+
+      <p> Reviews: </p>
+      <div >
+        <%= render :partial => @movie.reviews.where.not(user: current_user) %>
+      </div>
+    </div>
+  </div>
+
+  <div id="prev_movie"><%= link_to controller: "movies", action: "prev", id: @movie do %><i class="fa fa-angle-left"></i><% end %></div>
+  <div id="next_movie"><%= link_to controller: "movies", action: "next", id: @movie do %><i class="fa fa-angle-right"></i><% end %></div>
 </div>
