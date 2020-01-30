@@ -35,15 +35,13 @@
 
   <div class = "reviews">
 
-    <div class="reviews">
-
       <%= render 'reviews/form' %>
 
       <p> Reviews: </p>
       <div >
         <%= render :partial => @movie.reviews.where.not(user: current_user) %>
       </div>
-    </div>
+
   </div>
 
   <div id="prev_movie"><%= link_to controller: "movies", action: "prev", id: @movie do %><i class="fa fa-angle-left"></i><% end %></div>

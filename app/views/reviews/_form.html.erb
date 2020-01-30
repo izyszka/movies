@@ -1,6 +1,7 @@
 <%= form_for([@movie, @review]) do |f| %>
   <div class="field">
-    <%= f.number_field :rating %>
+    <span> Your review: </span> <br>
+    <div id="star"></div>
   </div>
   <div class="field">
     <%= f.text_field :comment %>
@@ -11,4 +12,13 @@
   <% if user_signed_in? && current_user.review %>
     <%= link_to('Delete', movie_review_path([@movie, current_user.review]), method: :delete ) %>
   <% end %>
+<% end %>
+
+<%= javascript_tag do %>
+  var data = <%= @review.rating.to_json.html_safe %>
+  $('#star').raty({
+  scoreName:  'review[rating]',
+  number:     5,
+  start:     data
+});
 <% end %>
