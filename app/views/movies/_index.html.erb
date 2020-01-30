@@ -13,7 +13,18 @@
           <h5 class="card-title"><%= movie.title.titlecase %></h5>
         <% end %>
           <h6 class="card-subtitle mb-2 text-muted"><%= movie.director %></h6>
-          <p class="card-text">ocena</p>
+
+          <div id="star-<%= movie.id %>"></div>
+          <%= javascript_tag do %>
+            var id = <%= movie.id.to_json.html_safe %>
+            var rate = <%= movie.reviews.average(:rating).to_json.html_safe %>
+
+            $('#star-'+id).raty({
+            readOnly:  true,
+            start:     rate,
+            half:  true,
+            });
+          <% end %>
       </div>
     </div>
   <% end %>
