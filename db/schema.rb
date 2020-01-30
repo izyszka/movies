@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_004924) do
+ActiveRecord::Schema.define(version: 2020_01_30_184859) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_004924) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text "quote"
   end
 
   create_table "reviews", force: :cascade do |t|

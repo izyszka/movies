@@ -18,7 +18,7 @@
   text-align: right;
   h1 {
     font-family: 'Neuton', serif;
-    font-size: 4em;
+    font-size: 3em;
     font-weight:300;
     color: rgba(0,0,0,0);
     transition: color 0.5s linear;
@@ -29,8 +29,33 @@
   }
 }
 .carousel-item.active:hover h1 {
-    color: rgba(0,0,0,0.8);
+  color: rgba(0,0,0,0.8);
+  cursor: pointer;
+}
+.slide-quote {
+  position:absolute;
+  bottom: 5%;
+  width:100%;
+  text-align: center;
+  p {
+    font-family: 'Neuton', serif;
+    font-size: 1.5em;
+    font-weight:400;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    color: silver;
+    text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+
     cursor: pointer;
+  }
+}
+@media screen and (max-width:768px) {
+  .slide-quote {
+    p {
+        display: none;
+    }
+  }
 }
 @media screen and (max-width:1000px) {
   #carouselExampleControls {
@@ -38,6 +63,12 @@
       h1 {
         width: 100%;
         font-size: 2.5em;
+      }
+    }
+    .slide-quote {
+      p {
+        font-size: 1em;
+        bottom:0;
       }
     }
   }

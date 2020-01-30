@@ -6,6 +6,13 @@
         <div class= "slide-title">
           <h1><%= @movies.first.title.titlecase %></h1>
         </div>
+
+        <div class="slide-quote">
+          <% if @movies.first.quote %>
+              <p>"<%= @movies.first.quote %>"</p>
+          <% end %>
+        </div>
+
         <div class='slide'>
           <%= image_tag @movies.first.photo.url(:large) %>
         </div>
@@ -14,13 +21,23 @@
 
     <% @movies[1..].each do |movie| %>
       <div class="carousel-item">
+
         <%= link_to movie do %>
+
           <div class= "slide-title">
             <h1><%= movie.title.titlecase %></h1>
           </div>
+
+          <div class= "slide-quote">
+            <% if movie.quote %>
+                <p><%= movie.quote %></p>
+            <% end %>
+          </div>
+
           <div class="slide">
             <%= image_tag movie.photo.url(:large) %>
           </div>
+
         <% end %>
       </div>
     <% end %>
@@ -35,5 +52,5 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-  
+
 </div>
