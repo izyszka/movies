@@ -1,5 +1,17 @@
-<div>
+<div class="review">
   <p><%= review.user.email %>:</p>
-  <p><%= review.rating %></p>
-  <p><%= review.comment %></p>
+  <div class="rating"><span id="review-star-<%= review.id %>"></span></div>
+  <div class="comment">
+    <p><%= review.comment %></p>
+  </div>
 </div>
+
+<%= javascript_tag do %>
+  var id = <%= review.id.to_json.html_safe %>
+  var rate = <%= review.rating.to_json.html_safe %>
+
+  $('#review-star-'+id).raty({
+  readOnly:  true,
+  start:     rate,
+  });
+<% end %>

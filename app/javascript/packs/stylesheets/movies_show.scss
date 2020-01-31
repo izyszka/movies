@@ -1,14 +1,26 @@
 #movie-show {
   min-height:80vh;
+  padding: 2em 0;
+
+  @media screen and (min-width: 1000px) {
+      height: 80vh;
+      .reviews {
+        max-height:100%;
+        overflow:scroll;
+      }
+  }
+
+  margin-bottom: 1.5em;
 
   color:#191919;
   font-size: 1.2em;
 
   background: #e9ecef;
-  //background: rgba(0,0,0,0.3);
-  // -webkit-box-shadow: -5px 14px 65px -2px rgba(0,0,0,0.75);
-  // -moz-box-shadow: -5px 14px 65px -2px rgba(0,0,0,0.75);
-  // box-shadow: -5px 14px 65px -2px rgba(0,0,0,0.75);
+
+  .number {
+    font-family: 'Times new roman';
+    font-size: 80%;
+  }
 
   p {
     color: black;
@@ -16,7 +28,7 @@
   }
   .links {
     width:100%;
-    border-top: 1px solid #212529;
+    border-top: 1px solid silver;
     padding-top: .5em;
     margin-left: .5em;
     margin-top:1em;
@@ -24,20 +36,21 @@
         color:#7F6B00;
     }
   }
-
-  .movie, .description, .reviews {
+  .movie {
     img {
       width:100%;
       min-width: 200px ;
     }
-    padding: 2em;
+  }
+  .movie, .description, .reviews {
+    padding: 0 2em;
     vertical-align:top;
     display: inline-block;
     width: 33%;
   }
   .description {
      padding-left:0;
-   }
+  }
 
   #prev_movie, #next_movie {
     background: rgba(0,0,0,.6);
@@ -79,6 +92,7 @@
     }
     .movie, .description {
       width:49%;
+      padding-bottom:2em;
     }
     #prev_movie, #next_movie {
       top: 175px;
@@ -101,6 +115,7 @@
       display: block;
       width: 100%;
       padding-left:2em;
+      padding-bottom:2em;
     }
   }
 }

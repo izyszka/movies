@@ -1,15 +1,13 @@
 <div id="movie-show">
   <div class="movie">
-
     <div>
       <%= image_tag @movie.poster.url(:medium) %>
     </div>
   </div>
 
   <div class="description">
-    <h1>
-      <%= @movie.title.titlecase %>
-    </h1>
+    <h1><%= @movie.title.titlecase %>
+    <span class="number"><%= @movie.reviews.average(:rating)%>/10 (<%= @movie.reviews.count %> votes)</span></h1>
 
     <p>
       <%= @movie.director.titlecase %>
@@ -17,11 +15,8 @@
       <%= @movie.length %>
     </p>
 
-    <div id="rating-form">
-      </div>
-
     <p>
-      <%= @movie.description.capitalize %>
+      <%= @movie.description %>
     </p>
 
     <div class="links">
@@ -30,18 +25,14 @@
       <% end %>
       <%= link_to 'Back', movies_path %>
     </div>
-
   </div>
 
   <div class = "reviews">
+    <%= render 'reviews/form' %>
 
-      <%= render 'reviews/form' %>
-
-      <p> Reviews: </p>
-      <div >
-        <%= render :partial => @movie.reviews.where.not(user: current_user) %>
-      </div>
-
+    <div>
+      <%= render :partial => @movie.reviews.where.not(user: current_user) %>
+    </div>
   </div>
 
   <div id="prev_movie"><%= link_to controller: "movies", action: "prev", id: @movie do %><i class="fa fa-angle-left"></i><% end %></div>

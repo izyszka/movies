@@ -1,24 +1,38 @@
-<%= form_for([@movie, @review]) do |f| %>
-  <div class="field">
-    <span> Your review: </span> <br>
-    <div id="star"></div>
-  </div>
-  <div class="field">
-    <%= f.text_field :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% if user_signed_in? && current_user.review %>
-    <%= link_to('Delete', movie_review_path([@movie, current_user.review]), method: :delete ) %>
+<div class="review-form">
+  <%= form_for([@movie, @review]) do |f| %>
+    <h4> Your review: </h4>
+
+    <div class="upper-review-form">
+      <div class="review-form-info">
+        <div class="field">
+          <div id="star"></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div>
+          <% if user_signed_in? && current_user.review %>
+            <%= link_to('Delete', movie_review_path([@movie, current_user.review]), method: :delete ) %>
+          <% end %>
+        </div>
+
+        <div><%= f.submit %></div>
+      </div>
+    </div>
+
+    <div class="field comment">
+      <%= f.text_area :comment, placeholder: "Type in your opinion" %>
+    </div>
   <% end %>
-<% end %>
+</div>
 
 <%= javascript_tag do %>
   var data = <%= @review.rating.to_json.html_safe %>
   $('#star').raty({
   scoreName:  'review[rating]',
   number:     5,
-  start:     data
+  start:     data,
+  starOn:    'star-on-big.png',
+  starOff:   'star-off-big.png'
 });
 <% end %>
