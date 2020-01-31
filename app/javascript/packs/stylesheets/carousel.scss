@@ -9,29 +9,46 @@
     width:100%;
   }
 }
+
 .slide-title {
   position:absolute;
+  right: 0;
   top: 5%;
-  right: 7%;
-  width:55%;
-  height: 20%;
+  transform: translate(100%,0);
+
+  padding-left: 1.5em;
+  padding-right: 3em;
+
+  padding-top:.5em;
+  padding-bottom:.5em;
+
   text-align: right;
+
+  background: linear-gradient(90deg, rgba(60,60,60, 0.5) 20%, rgba(60,60,60, 0.9), rgba(0,0,0, 0.9) 120%);
+
+  transition: transform 1.5s ease;
+  &:hover {
+    transform: translate(0,0);
+  }
+
+  h1, p {
+    margin:0;
+    color: rgba(0,0,0,0.8);
+  }
   h1 {
     font-family: 'Neuton', serif;
-    font-size: 3em;
+    font-size: 2.8em;
     font-weight:300;
-    color: rgba(0,0,0,0);
-    transition: color 0.5s linear;
-    &:hover {
-      color: rgba(0,0,0,0.8);
-      cursor: pointer;
-    }
+  }
+  p {
+    font-size:1.5em;
+    font-weight: 700;
   }
 }
-.carousel-item.active:hover h1 {
-  color: rgba(0,0,0,0.8);
-  cursor: pointer;
+.carousel-item.active:hover .slide-title {
+  transform: translate(0,0);
 }
+
 .slide-quote {
   position:absolute;
   bottom: 5%;
@@ -50,6 +67,7 @@
     cursor: pointer;
   }
 }
+
 @media screen and (max-width:768px) {
   .slide-quote {
     p {
@@ -58,11 +76,16 @@
   }
 }
 @media screen and (max-width:1000px) {
+  .slide-title {
+    padding-right: 1em;
+  }
   #carouselExampleControls {
     .slide-title {
       h1 {
-        width: 100%;
-        font-size: 2.5em;
+        font-size: 2em;
+      }
+      p {
+        font-size:1em;
       }
     }
     .slide-quote {
@@ -75,7 +98,7 @@
 }
 @media screen and (min-width:1200px) {
   #carouselExampleControls {
-    width: 90%;
+    max-width: 90%;
     align-self: center;
     margin:auto;
   }

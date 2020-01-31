@@ -5,11 +5,15 @@
       <%= link_to @movies.first do %>
         <div class= "slide-title">
           <h1><%= @movies.first.title.titlecase %></h1>
+          <p>
+            <%= @movies.first.director.titlecase %>
+            <%= @movies.first.reviews.average(:rating) %>
+          </p>
         </div>
 
         <div class="slide-quote">
           <% if @movies.first.quote %>
-              <p>"<%= @movies.first.quote %>"</p>
+              <p><%= @movies.first.quote %></p>
           <% end %>
         </div>
 
@@ -26,6 +30,10 @@
 
           <div class= "slide-title">
             <h1><%= movie.title.titlecase %></h1>
+
+            <p>
+              <%= movie.director.titlecase %>
+            </p>
           </div>
 
           <div class= "slide-quote">
