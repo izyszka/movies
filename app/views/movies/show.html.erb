@@ -16,7 +16,7 @@
     <h1><%= @movie.title.titlecase %></h1>
 
     <h1 class="number">
-      <% if @movie.reviews.any? %>
+      <% unless @movie.reviews.count == 0 %>
         <%= @movie.reviews.average(:rating).round(2)%>/10
       <% end %>
 
