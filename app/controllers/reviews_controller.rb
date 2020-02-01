@@ -1,27 +1,24 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_movie
+  before_action :set_review, only: [:update, :destroy]
 
   def create
-    # review = current_user.create_review(review_params)
-    review = Review.create(review_params)
-    review.movie = @movie
+    review = Review.new(review_params)
+    review = @movie.reviews.build(review_params)
+    review.user_id = current_user.id
 
-    current_user.review = review
+    review.save
     redirect_to @movie
   end
 
   def update
-    review = Review.create(review_params)
-    review.movie = @movie
-    current_user.review = review
-
+    @review.update(review_params)
     redirect_to @movie
   end
 
   def destroy
-    current_user.review.destroy
-
+    @review.destroy
     redirect_to @movie
   end
 
@@ -33,5 +30,9 @@ class ReviewsController < ApplicationController
 
   def set_movie
     @movie = Movie.find(params[:movie_id])
+  end
+
+  def set_review
+    @review = @movie.reviews.find_by(user_id: current_user.id)
   end
 end

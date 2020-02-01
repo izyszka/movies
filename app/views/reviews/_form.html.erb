@@ -11,8 +11,8 @@
 
       <div class="actions">
         <div>
-          <% if user_signed_in? && current_user.review %>
-            <%= link_to('Delete', movie_review_path([@movie, current_user.review]), method: :delete ) %>
+          <% if user_signed_in? && current_user.reviews.find_by(movie_id: @movie.id) %>
+            <%= link_to('Delete', movie_review_path([@movie, current_user.reviews.find_by(movie_id: @movie.id)]), method: :delete ) %>
           <% end %>
         </div>
 
