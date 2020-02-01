@@ -1,10 +1,10 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:index, :show, :search]
+  before_action :set_movie, only: [:show, :edit, :update, :destroy, :next, :prev]
+  before_action :set_movies, only: [:index, :next, :prev]
+  before_action :authorize, except: [:index, :show, :search, :next, :prev]
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
   end
 
   # GET /movies/1
@@ -24,6 +24,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   # POST /movies
@@ -61,7 +62,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
+      format.html { redirect_to movies_url, notice: 'Movie successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -74,15 +75,35 @@ class MoviesController < ApplicationController
     end
   end
 
+  def next
+    if @movie == @movies.last
+      redirect_to @movies.first
+    else
+      redirect_to @movies.where("id > ?", params[:id]).first
+    end
+  end
+
+  def prev
+    if @movie == @movies.first
+      redirect_to @movies.last
+    else
+      redirect_to @movies.where("id < ?", params[:id]).last
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
       @movie = Movie.find(params[:id])
     end
 
+    def set_movies
+      @movies = Movie.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :director, :description, :length, :poster)
+      params.require(:movie).permit(:title, :director, :description, :length, :quote, :quote_author, :poster, :photo)
     end
 
     def authorize

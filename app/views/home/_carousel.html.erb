@@ -1,0 +1,64 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <%= link_to @movies.first do %>
+        <div class= "slide-title">
+          <h1><%= @movies.first.title.titlecase %></h1>
+          <p>
+            <%= @movies.first.director.titlecase %>
+            <%= @movies.first.reviews.average(:rating) %>
+          </p>
+        </div>
+
+        <div class="slide-quote">
+          <% if @movies.first.quote %>
+              <p><%= @movies.first.quote %></p>
+          <% end %>
+        </div>
+
+        <div class='slide'>
+          <%= image_tag @movies.first.photo.url(:large) %>
+        </div>
+      <% end %>
+    </div>
+
+    <% @movies[1..].each do |movie| %>
+      <div class="carousel-item">
+
+        <%= link_to movie do %>
+
+          <div class= "slide-title">
+            <h1><%= movie.title.titlecase %></h1>
+
+            <p>
+              <%= movie.director.titlecase %>
+            </p>
+          </div>
+
+          <div class= "slide-quote">
+            <% if movie.quote %>
+                <p><%= movie.quote %></p>
+            <% end %>
+          </div>
+
+          <div class="slide">
+            <%= image_tag movie.photo.url(:large) %>
+          </div>
+
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <a class="carousel-control carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
