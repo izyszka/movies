@@ -1,2 +1,4 @@
-<%= render 'carousel' %>
+<% if @movies.first %>
+  <%= render 'carousel' %>
+<%end%>
 <%= render '/movies/index' %>
