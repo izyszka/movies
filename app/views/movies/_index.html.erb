@@ -28,10 +28,4 @@
       </div>
     </div>
   <% end %>
-
 </div>
-<br>
-
-<% if current_user && current_user.is_admin? %>
-  <%= link_to 'New Movie', new_movie_path %>
-<% end %>

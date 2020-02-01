@@ -3,7 +3,7 @@
   padding: 2em 0;
 
   @media screen and (min-width: 1000px) {
-      height: 80vh;
+      height: 85vh;
       .reviews {
         max-height:100%;
         overflow:scroll;
@@ -21,6 +21,10 @@
     font-family: 'Times new roman';
     font-size: 80%;
   }
+  h1.number {
+    font-size: 1.2em;
+    padding-left: .3em;
+  }
 
   p {
     color: black;
@@ -28,9 +32,6 @@
   }
   .links {
     width:100%;
-    border-top: 1px solid silver;
-    padding-top: .5em;
-    margin-left: .5em;
     margin-top:1em;
     a:hover {
         color:#7F6B00;
@@ -41,6 +42,19 @@
       width:100%;
       min-width: 200px ;
     }
+    #poster-placeholder {
+      width: 100%;
+      background: white;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 700;
+      color: silver;
+      opacity: 0.5;
+      height: 450px;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
   }
   .movie, .description, .reviews {
     padding: 0 2em;
@@ -50,6 +64,59 @@
   }
   .description {
      padding-left:0;
+  }
+  .edit-movie {
+    padding: 0;
+    vertical-align:top;
+    display: inline-block;
+    width: 66%;
+    .field {
+      padding: .2em;
+    }
+    label {
+      width: 20%;
+      vertical-align: top;
+    }
+    input, textarea {
+      width: 50%;
+      border:1px solid silver;
+      outline:none;
+      background: rgba(255,255,255,0.7);
+      padding: 2px .5em;
+    }
+    input[type="file"] {
+      background:transparent;
+      border:none;
+      padding-left:2px;
+      outline:none;
+      &:hover {
+        cursor:pointer;
+      }
+    }
+    .actions {
+      width:70%;
+      background: transparent;
+      border-top: 1px solid silver;
+      margin-top: 1em;
+      padding-top: .5em;
+      label {
+        width: 28%;
+      }
+      a, input {
+        padding: 0 .5em;
+        &:hover {
+          color: #7F6B00;
+        }
+      }
+      a {
+        border-left: 1px solid silver;
+      }
+      input {
+        background: inherit;
+        border: none;
+        width:auto;
+      }
+    }
   }
 
   #prev_movie, #next_movie {
@@ -93,6 +160,21 @@
     .movie, .description {
       width:49%;
       padding-bottom:2em;
+    }
+    .edit-movie {
+      display: block;
+      width: 100%;
+      padding: 2em;
+      label {
+        width: 40%;
+      }
+      input, textarea {
+        width: 59%;
+      }
+      input[type="file"] {
+        background: transparent;
+        border:none;
+      }
     }
     #prev_movie, #next_movie {
       top: 175px;

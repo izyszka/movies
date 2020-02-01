@@ -33,6 +33,11 @@
 
         <ul id="nav-menu" class="nav">
           <% if current_user %>
+            <% if current_user.is_admin? %>
+              <li class="nav-item">
+                <%= link_to 'Add new movie', new_movie_path %>
+              </li>
+            <% end %>
             <li class="nav-item">
               <%= link_to 'Account', edit_user_registration_path %>
             </li>
