@@ -1,5 +1,5 @@
 #movie-show {
-  min-height:80vh;
+  min-height:500px;
   padding: 2em 0;
 
   @media screen and (min-width: 1000px) {
@@ -37,6 +37,12 @@
         color:#7F6B00;
     }
   }
+  .movie-overflow {
+    height: 100%;
+    width:66%;
+    overflow:scroll;
+    display:inline-block;
+  }
   .movie {
     img {
       width:100%;
@@ -61,6 +67,9 @@
     vertical-align:top;
     display: inline-block;
     width: 33%;
+  }
+  .movie, .description {
+    width:49%;
   }
   .description {
      padding-left:0;
@@ -157,8 +166,10 @@
         border-left: 0;
       }
     }
+    .movie-overflow {
+      width:100%;
+    }
     .movie, .description {
-      width:49%;
       padding-bottom:2em;
     }
     .edit-movie {
