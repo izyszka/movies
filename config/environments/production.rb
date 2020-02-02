@@ -29,7 +29,7 @@ Rails.application.configure do
   config.assets.compile = false
   config.serve_static_assets = true
   config.assets.digest = true
-  
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
@@ -111,15 +111,4 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.paperclip_defaults = {
-  storage: :s3,
-  preserve_files: true,
-  s3_host_name: ENV.fetch("S3_HOST_NAME"),
-  bucket: ENV.fetch('S3_BUCKET_NAME'),
-  s3_region: ENV.fetch('AWS_REGION'),
-  s3_credentials: {
-    access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY')
-  }
- }
 end
