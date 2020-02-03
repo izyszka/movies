@@ -4,7 +4,7 @@ nav.navbar {
   top: 0;
   width:100%;
   @media screen and (max-width: 1000px) {
-    display: inline-block;
+    align-items: flex-start;
   }
   @media screen and (max-width: 768px) {
     height: 100px;
