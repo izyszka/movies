@@ -18,11 +18,15 @@
           <%= javascript_tag do %>
             var id = <%= movie.id.to_json.html_safe %>
             var rate = <%= movie.reviews.average(:rating).to_json.html_safe %>
+            var staron = <%= image_path('star-on.png').to_json.html_safe %>
+            var staroff = <%= image_path('star-off.png').to_json.html_safe %>
 
             $('#star-'+id).raty({
             readOnly:  true,
             start:     rate,
             half:  true,
+            starOn:    staron,
+            starOff:   staroff
             });
           <% end %>
       </div>

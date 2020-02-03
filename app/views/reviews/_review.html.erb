@@ -9,9 +9,13 @@
 <%= javascript_tag do %>
   var id = <%= review.id.to_json.html_safe %>
   var rate = <%= review.rating.to_json.html_safe %>
+  var staron = <%= image_path('star-on.png').to_json.html_safe %>
+  var staroff = <%= image_path('star-off.png').to_json.html_safe %>
 
   $('#review-star-'+id).raty({
   readOnly:  true,
   start:     rate,
+  starOn:    staron,
+  starOff:   staroff
   });
 <% end %>

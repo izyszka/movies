@@ -28,11 +28,14 @@
 
 <%= javascript_tag do %>
   var data = <%= @review.rating.to_json.html_safe %>
+  var staron = <%= image_path('star-on-big.png').to_json.html_safe %>
+  var staroff = <%= image_path('star-off-big.png').to_json.html_safe %>
+
   $('#star').raty({
   scoreName:  'review[rating]',
   number:     5,
   start:     data,
-  starOn:    'star-on-big.png',
-  starOff:   'star-off-big.png'
+  starOn:    staron,
+  starOff:   staroff
 });
 <% end %>

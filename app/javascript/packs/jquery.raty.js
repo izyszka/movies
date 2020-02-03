@@ -78,7 +78,7 @@
 			hint = (i <= opt.hintList.length && opt.hintList[i - 1] !== null) ? opt.hintList[i - 1] : i;
 
 			$this
-			.append('<img id="' + id + '-' + i + '" src="' + "/assets/" + starFile + '" alt="' + i + '" title="' + hint + '" class="' + id + '"/>')
+			.append('<img id="' + id + '-' + i + '" src="' + starFile + '" alt="' + i + '" title="' + hint + '" class="' + id + '"/>')
 			.append((i < opt.number) ? '&nbsp;' : '');
 		}
 
@@ -111,7 +111,7 @@
 
 			if (opt.cancel) {
 				var stars	= $('img.' + id),
-					cancel	= '<img src="' + "/assets/" + opt.cancelOff + '" alt="x" title="' + opt.cancelHint + '" class="button-cancel"/>';
+					cancel	= '<img src="' + opt.cancelOff + '" alt="x" title="' + opt.cancelHint + '" class="button-cancel"/>';
 
 				if (opt.cancelPlace == 'left') {
 					$this.prepend(cancel + '&nbsp;');
@@ -120,11 +120,11 @@
 				}
 
 				$('#' + id + ' img.button-cancel').mouseenter(function() {
-					$(this).attr('src', "/assets/" + opt.cancelOn);
-					stars.attr('src', "/assets/" + opt.starOff);
+					$(this).attr('src', opt.cancelOn);
+					stars.attr('src', opt.starOff);
 					setTarget(target, '', opt);
 				}).mouseleave(function() {
-					$(this).attr('src', "/assets/" + opt.cancelOff);
+					$(this).attr('src', opt.cancelOff);
 					$this.mouseout();
 				}).click(function(evt) {
 					$('input#' + id + '-score').removeAttr('value');
@@ -231,10 +231,10 @@
 						item++;
 					}
 				} else {
-					star.attr('src', "/assets/" + opt.starOn);
+					star.attr('src', opt.starOn);
 				}
 			} else {
-				star.attr('src', "/assets/" + opt.starOff);
+				star.attr('src', opt.starOff);
 			}
 		}
 	};
@@ -260,7 +260,7 @@
 		var id = context.attr('id');
 
 		if (isNaN(parseInt(score))) {
-			context.children('img.' + id).attr('src', "/assets/" + opt.starOff);
+			context.children('img.' + id).attr('src', opt.starOff);
 			$('input#' + id + '-score').removeAttr('value');
 			return;
 		}
@@ -313,11 +313,11 @@
 
 		if (diff > 0.25 && diff <= 0.75) {
 			rounded = rounded - 0.5;
-			$('img#' + id + '-' + Math.ceil(rounded)).attr('src', "/assets/" + opt.starHalf);
+			$('img#' + id + '-' + Math.ceil(rounded)).attr('src', opt.starHalf);
 		} else if (diff > 0.75) {
 			rounded--;
 		} else {
-			$('img#' + id + '-' + rounded).attr('src', "/assets/" + opt.starOn);
+			$('img#' + id + '-' + rounded).attr('src', opt.starOn);
 		}
 	};
 
