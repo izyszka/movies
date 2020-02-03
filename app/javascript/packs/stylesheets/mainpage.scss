@@ -2,6 +2,13 @@ nav.navbar {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  width:100%;
+  @media screen and (max-width: 1000px) {
+    display: inline-block;
+  }
+  @media screen and (max-width: 768px) {
+    height: 100px;
+  }
   z-index:3;
   color: #7F6B00;
   .navbar-brand {
@@ -14,6 +21,25 @@ nav.navbar {
   form {
     position: absolute;
     left: 20%;
+    @media screen and (max-width: 1000px) {
+      left:30%;
+    }
+    @media screen and (max-width: 768px) {
+      top: 50px;
+      left:auto;
+      width:510px;
+
+      margin:auto;
+      input {
+        width:100%;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      width:auto;
+      left:5%;
+      right:5%;
+    }
+
     input, .search-input{
       background:#191919;
       color: silver;
@@ -83,5 +109,8 @@ nav.navbar, .jumbotron, .notice, .alert {
   transition: background-color 1s linear;
   &:hover {
     background: black;
+  }
+  @media screen and (max-width: 1000px) {
+    background:black;
   }
  }
